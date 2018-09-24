@@ -40,10 +40,10 @@
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="#">- Sidebar 1</a>
+                <a href="/project">- Project</a>
             </li>
             <li>
-                <a href="#">- Sidebar 2</a>
+                <a href="/about">- About</a>
             </li>
         </ul>
     </aside>
