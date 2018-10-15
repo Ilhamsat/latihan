@@ -23,4 +23,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/mahasiswa', function () {
+    return view('mahasiswa');
+});
+
 ?>

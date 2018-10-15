@@ -45,6 +45,9 @@
             <li>
                 <a href="/about">- About</a>
             </li>
+			<li>
+                <a href="/mahasiswa">Mahasiswa</a>
+            </li>
         </ul>
     </aside>
 
