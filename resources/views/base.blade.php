@@ -47,7 +47,11 @@
             </li>
 			<li>
                 <a href="/mahasiswa">Mahasiswa</a>
+				<ul>
+				<a href="{{route('mahasiswa.create')}}">Tambah Mahasiswa</a>
+				</ul>
             </li>
+			
         </ul>
     </aside>
 
