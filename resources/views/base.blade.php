@@ -51,6 +51,12 @@
 				<a href="{{route('mahasiswa.create')}}">Tambah Mahasiswa</a>
 				</ul>
             </li>
+            <li>
+                <a href="/user">User</a>
+                <ul>
+                <a href="{{route('user.create')}}">Tambah User</a>
+                <ul>
+            </li>
 			
         </ul>
     </aside>

@@ -24,5 +24,6 @@ Route::get('/about', function () {
 });
 
 Route::resource('mahasiswa','MahasiswaController');
+Route::resource('user','UserController')
 
 ?>
