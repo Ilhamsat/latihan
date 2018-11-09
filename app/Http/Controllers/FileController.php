@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\ModelFile;
 use Illuminate\Http\Request;
-Use App\ModelUser;
 
-class UserController extends Controller
+
+class FileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = ModelUser::all();
-            return view('user',compact('data'));
+        $data = ModelFile::all();
+        return view('file',compact('data'));
     }
 
     /**
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user_create');
+        return view('file_create');
     }
 
     /**
@@ -36,12 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new ModelUser();
-		$data->nama = $request->nama;
-		$data->username = $request->username;
-		$data->password = $request->password;
-		$data->save();
-		return redirect()->route('user.index')->with('alert-success','Berhasil Menambahkan Data User!');
+        $data = new ModelFile();
+        $data->nama = $request->input('name');
+        $file = $request->file('file');
+        $ext = $file->getClientOriginalExtension();
+        $newname = rand(100000,1001238912).".".$ext;
+        $file->move('uploads/file',$newname);
+        $data->file = $newname;
+        $data->save();
+        return redirect()->route('file.index')->with('alert-succes','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -63,8 +67,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = ModelUser::where('id',$id)->get();
-        return view('user_edit',compact('data'));
+        //
     }
 
     /**
@@ -76,12 +79,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = ModelUser::where('id',$id)->first();
-        $data->nama = $request->nama;
-        $data->username = $request->username;
-        $data->password = $request->password;
-        $data->save();
-        return redirect()->route('user.index')->with('alert-succes','Data berhasil diubah!');
+        //
     }
 
     /**
@@ -92,8 +90,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $data = ModelUser::where('id',$id)->first();
-        $data->delete();
-        return redirect()->route('user.index')->with('alert-success','Data berhasil dihapus!');
+        //
     }
 }
